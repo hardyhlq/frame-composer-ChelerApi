@@ -12,7 +12,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@git.linewin.cc:composer/queue.git",
+      "url": "https://github.com/hardyhlq/frame-php7.x-queue.git",
       "name": "l-queue/l-client"
     }
   ],
