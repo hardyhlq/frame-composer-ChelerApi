@@ -1,0 +1,28 @@
+{
+  "name": "cheler/frame",
+  "description": "A PHP framework",
+  "type": "library",
+  "license": "MIT",
+  "keywords": ["frame"],
+  "require": {
+    "php": ">=7.0.0",
+    "phpunit/phpunit": "6.5.5",
+    "l-queue/l-client": "0.0.4"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@git.linewin.cc:composer/queue.git",
+      "name": "l-queue/l-client"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "frame\\": "src/frame/"
+    },
+    "files": ["src/frame/runtime/NativePatch.php"]
+  },
+  "bin": [
+    "projectLw"
+  ]
+}

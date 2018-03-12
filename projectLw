@@ -1,0 +1,48 @@
+#!/bin/bash
+DIR="$( dirname "$0"  )"
+OS="$( uname -o  )"
+if [[ $OS == "GNU/Linux" ]];then
+	PROJECT_DIR=$DIR"/../../"
+	EXAMPLE_DIR=$DIR"/../cheler/frame/example/"
+elif [[ $OS == "Msys" ]]; then
+	PROJECT_DIR=$DIR"/../../../"
+	EXAMPLE_DIR=$DIR"/example/"
+else
+	echo "Unkonw os"
+fi
+
+if [ ! -d $EXAMPLE_DIR ];then
+      echo "composer update first"
+      exit
+fi
+
+cpExampleFile() {
+	cp -r $EXAMPLE_DIR"app" $PROJECT_DIR
+	cp $EXAMPLE_DIR".gitignore" $PROJECT_DIR
+	cp -r $EXAMPLE_DIR"conf" $PROJECT_DIR
+}
+
+makeIndexFile() {
+echo "<?php
+/**
+ * index.php
+ * 入口文件
+ * Date: 18-2-5
+ */
+
+define('APP_PATH', __DIR__);
+
+require_once __DIR__.'/vendor/autoload.php';
+
+// 加载自定义配置文件
+require('conf/conf.php');
+\frame\ChelerApi::run();" >$PROJECT_DIR"index.php"
+}
+
+main() {
+	cpExampleFile
+	makeIndexFile
+	mkdir $PROJECT_DIR"app/helper"
+}
+
+main

@@ -1,0 +1,10 @@
+syntax = "proto3";
+package protocol;
+
+message SmsTask {
+    reserved 5 to 10;
+    string templateId = 1; //模板编号
+    string phone = 2; //发送手机号码
+    string content = 3; //发送的短信内容,或者参数,每个参数以 | 隔开 如: "3502|注册操作"
+    int64 time = 4; //定时时间戳s,非定时任务此值传0
+}
