@@ -20,7 +20,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@git.linewin.cc:composer/ChelerApi.git",
+      "url": "https://github.com/hardyhlq/frame-composer-ChelerApi.git",
       "name": "cheler/frame"
     }
   ],
